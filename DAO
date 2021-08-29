@@ -1,0 +1,37 @@
+<?php
+
+        /*
+        * Classe responsavel pela conexão com Banco de Dados 
+        */
+
+        class Conexão{
+            //Usuario Banco 
+            private $usuario = "root";
+            //Senha do Banco 
+            private $senha = "";
+            //Caminho do Banco 
+            private $caminho = "localhost";
+            //Nome do Banco 
+            private $banco = "pw";
+            //Status da conexão 
+            private $con;
+
+            //Método construtor da Classe
+            function _construct(){
+                //con receberá a conexão com o banco de dados 
+                $this->con = mysqli_connect($this->caminho, $this-> usuario, $this->senha)
+                                or die
+                                    ("Conexão com o banco falhou" . mysqli_error($this->con));
+
+                //função para selecionar o banco de dados 
+                mysqli_select_db($this->con, $this->banco)
+                    or die ("Conexão com o banco de dados Falhou!" . mysqli_error($this->con));
+
+                //Define o charset 
+                mysqli_set_charset($this->con, 'utf8');
+            }
+            //Método que retorna o status da conexão
+            public function getcon() {
+                return $this->con;
+            }
+        }
