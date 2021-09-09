@@ -1,0 +1,25 @@
+<?php
+/*
+* Classe utilizada para manipulação de dados 
+* da linguagens de Formulário e do Banco de dad
+*/
+class Lang{
+    private $idlang;
+    private $desclang;
+
+    public function getIdLang(){
+        return $this-> idLang;
+    }
+
+    public function setIdLang($idLang){
+        $this->idLang = $idLang;
+    }
+
+    public function getDesclLang() {
+        return $this->desclang;
+    }
+
+    public function setDescLang($descLang){
+        $this->desclang = $descLang;
+    }
+}
